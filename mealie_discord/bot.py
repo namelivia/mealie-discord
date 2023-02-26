@@ -25,7 +25,7 @@ class Bot:
             if message.author == client.user:
                 return
 
-            if message.content == keyworkd:
+            if message.content == keyword:
                 logger.info(f"Food request by {client.user}")
                 await message.channel.send(
                     Mealie.get_todays_meal_message(mealie_token, mealie_url)
