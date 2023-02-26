@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: mealie_discord
+    tty: true
+    working_dir: /app
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./:/app
+    environment:
+      DISCORD_TOKEN: "discord_token"
+      MEALIE_TOKEN: "discord_token"
+      MEALIE_URL: "mealie_url"
+    command: [
+        "pipenv",
+        "run",
+        "pytest",
+    ]
