@@ -1,5 +1,6 @@
 import discord
-from mealie import Mealie
+import logging
+from mealie_discord.mealie import Mealie
 from discord.ext import commands
 
 logger = logging.getLogger(__name__)

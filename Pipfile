@@ -6,7 +6,10 @@ verify_ssl = true
 [dev-packages]
 pudb = "*"
 pytest = "*"
+pytest-cov = "*"
+codecov = "*"
 black = "*"
+pre-commit = "*"
 
 [packages]
 requests = "*"
