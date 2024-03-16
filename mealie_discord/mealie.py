@@ -1,4 +1,7 @@
 import requests
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Mealie:
@@ -35,5 +38,5 @@ class Mealie:
                 message += f"{entry['recipe']['name']}\n"
             return message
         except requests.RequestException as e:
-            logging.error(f"Request failed: {e}")
+            logger.error(f"Request failed: {e}")
             raise
