@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "mealie-discord"
+version = "0.1.0"
+description = ""
+authors = ["José Ignacio Amelivia Santiago <ohcan2@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "*"
+discord = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+pudb = "*"
+pytest = "*"
+pytest-cov = "*"
+codecov = "*"
+black = "*"
+pre-commit = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
