@@ -20,14 +20,20 @@ class Mealie:
 
     @staticmethod
     def get_todays_meal_message(token, url):
-        data = requests.get(
-            f"{url}/api/groups/mealplans/today", headers=Mealie._get_headers(token)
-        ).json()
-        if len(data) == 0:
-            return Mealie._no_food_message()
+        try:
+            response = requests.get(
+                f"{url}/api/groups/mealplans/today", headers=Mealie._get_headers(token)
+            )
+            response.raise_for_status()
+            data = response.json()
+            if len(data) == 0:
+                return Mealie._no_food_message()
 
-        message = ""
-        for entry in data:
-            message += f"{Mealie._translate_entry_type(entry['entryType'])}: "
-            message += f"{entry['recipe']['name']}\n"
-        return message
+            message = ""
+            for entry in data:
+                message += f"{Mealie._translate_entry_type(entry['entryType'])}: "
+                message += f"{entry['recipe']['name']}\n"
+            return message
+        except requests.RequestException as e:
+            logging.error(f"Request failed: {e}")
+            raise
