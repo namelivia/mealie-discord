@@ -18,7 +18,7 @@ services:
       MEALIE_TOKEN: "discord_token"
       MEALIE_URL: "mealie_url"
     command: [
-        "pipenv",
+        "poetry",
         "run",
         "pytest",
     ]
